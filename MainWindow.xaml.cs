@@ -24,14 +24,15 @@ namespace ExampleWPF
         {
             InitializeComponent();
         }
-        private void Button_Prodects_Click(object sender, RoutedEventArgs e)
-        {
-            tabControl1.Visibility = Visibility.Visible;
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Expenses_Click(object sender, RoutedEventArgs e)
+        {
+            tabControl.SelectedIndex = 0;
         }
     }
 }
