@@ -25,14 +25,49 @@ namespace ExampleWPF
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Hide_Click(object sender, RoutedEventArgs e)
         {
-
+            tabControl.Visibility = Visibility.Collapsed;
+            Expenses();
+            Income();
         }
 
         private void Button_Expenses_Click(object sender, RoutedEventArgs e)
         {
-            tabControl.SelectedIndex = 0;
+            //tabControl.SelectedIndex = 0;
+            tabControl.Visibility = Visibility.Visible; //устанавливает свойство Visible, из за чего открывается вкладка.
+        }
+
+        private void Expenses()
+        {
+            int exProducts;
+            if (Int32.TryParse(ExpensesProducts.Text, out exProducts))
+            {
+                totalExpenses.Text = Convert.ToString(exProducts);
+                // теперь вы можете использовать значение exProducts
+            }
+            else
+            {
+                MessageBox.Show("Данные введены некорректно");
+                ExpensesProducts.Text = "";
+                // если в TextBox не было введено корректное значение типа int
+            }
+        }
+
+        private void Income()
+        {
+            int finance;
+            if (Int32.TryParse(Revenue.Text, out finance))
+            {
+                totalIncome.Text = Convert.ToString(finance);
+                // теперь вы можете использовать значение exProducts
+            }
+            else
+            {
+                MessageBox.Show("Данные введены некорректно");
+                Revenue.Text = "";
+                // если в TextBox не было введено корректное значение типа int
+            }
         }
     }
 }

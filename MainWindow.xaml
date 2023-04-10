@@ -34,25 +34,29 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Ellipse Width="190" Height="190" Fill="LightGray" Stroke="Black"
+            <Canvas>
+                <Ellipse Width="190" Height="190" Fill="LightGray" Stroke="Black"
              HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,187,0,0" />
-            <TextBlock x:Name="Results" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Label Content="Расходы" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" FontSize="24" Background="LawnGreen" BorderBrush="Black" BorderThickness="2"/>
-            <Label Content="Доходы" HorizontalAlignment="Right" Margin="0,10,50,0" VerticalAlignment="Top" FontSize="24" Background="LawnGreen" BorderBrush="Black" BorderThickness="2"/>
-            <TextBlock Margin="10,234,490,181" Background="PaleVioletRed"/>
-            <TextBlock Margin="490,234,10,181" Background="PaleVioletRed"/>
-            <Calendar  Margin="238,7,268,0" VerticalAlignment="Top"/>
+                <TextBlock x:Name="Results" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Label Content="Расходы" HorizontalAlignment="Left" FontSize="24" Background="LawnGreen" BorderBrush="Black" BorderThickness="2" Canvas.Top="20" Canvas.Left="20"/>
+                <Label Content="Доходы" HorizontalAlignment="Right" FontSize="24" Background="LawnGreen" BorderBrush="Black" BorderThickness="2" Canvas.Top="20" Canvas.Right="20"/>
+                <TextBlock x:Name="totalExpenses" Canvas.Left="10" Canvas.Top="217" Background="PaleVioletRed" FontSize="18" Width="180" Height="100" Margin="3" VerticalAlignment="Center" HorizontalAlignment ="Center"/>
+                <TextBlock x:Name="totalIncome"  Background="PaleVioletRed" FontSize="18"  Width="180" Height="100" Canvas.Left="506" Canvas.Top="217" Margin="3"/>
+                <Calendar  Margin="238,7,268,0" VerticalAlignment="Top"/>
+            </Canvas>
 
-                        <Button Click="Button_Expenses_Click" Content="+" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="50" FontSize="30" BorderBrush="Black" BorderThickness="1" Margin="2,0,0,2" Grid.ColumnSpan="2"/>
+            <Button Click="Button_Expenses_Click" Content="+" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="50" FontSize="30" BorderBrush="Black" BorderThickness="1" Margin="2,0,0,2" Grid.ColumnSpan="2"/>
             <TabControl Visibility="Collapsed" x:Name="tabControl">
                 <TabItem Header="Вкладка 1" >
-                    <StackPanel>
-                        <TextBlock Text="Текст на вкладке 1"/>
-                    </StackPanel>
+                    <Grid>
+                        <Label Content="Укажите ваши расходы:" Margin="10,10,420,417" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Label Content="Укажите ваши доходы:" Margin="452,19,0,0" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="ExpensesProducts" Height="50" Margin="10,92,420,340" Background="Crimson"/>
+                        <TextBox x:Name="Revenue" Height="50" Margin="420,92,10,340" Background="LightGreen"/>
+                        <Button Height="50" Margin="255,422,270,10"  Content="Сохранить" Click="Button_Hide_Click"/>
+                    </Grid>
                 </TabItem>
-                
             </TabControl>
-
         </Grid>
 
         <UniformGrid Grid.Row="2" Columns="4">
